@@ -87,6 +87,7 @@ function resetDice() {
     document.getElementById("btnRollTwo").style.visibility = "hidden";
     document.getElementById("btnRollThree").style.visibility = "hidden";
     document.getElementById("btnRollOne").style.visibility = "visible";
+    upperScore();
     totalScore();
     rollnumber = 0;
     var btnInvisible=0;
@@ -214,9 +215,9 @@ function fullHouseScore() {
     var dies = ["die1", "die2", "die3", "die4", "die5", "die6"];
 
     for (var i = 0; i < 6; i++) {
-        if (rolls[i] == 3) {
+        if (rolls[i] >= 3) {
             for (var x = 0; x < 6; x++) {
-                if (rolls[x] == 2) {
+                if (rolls[x] >= 2) {
                     total = 25;
                 }
             }
@@ -263,7 +264,7 @@ function yahtzeeScore() {
     var dies = ["die1", "die2", "die3", "die4", "die5", "die6"];
 
     for (var i = 0; i < 6; i++) {
-        if (rolls[i] == 5) {
+        if (rolls[i] == 6) {
             total = 50;
         }
     }
@@ -446,8 +447,21 @@ function totalScore() {
         "fullHouseX", "smStraightX", "lgStraightX", "yahtzeeX", "chanceX"];
     var scoreTotal = 0;
     for (var i = 0; i < scoredivs.length; i++) {
-        var z = parseInt(document.getElementById(scoredivs[i]).innerHTML)
+        var z = parseInt(document.getElementById(scoredivs[i]).innerHTML);
         scoreTotal += z;
     }
+    if (parseInt(document.getElementById("upperScore").innerHTML)>=63){
+        scoreTotal+=35;
+    }
     document.getElementById("totalScore").innerHTML = scoreTotal.toString();
+}
+
+function upperScore(){
+    var upperscoreDivs = ["onesX", "twosX", "threesX", "foursX", "fivesX", "sixesX"];
+    var scoreTotal = 0;
+    for (var i=0;i<upperscoreDivs.length; i++){
+        var z = parseInt(document.getElementById(upperscoreDivs[i]).innerHTML);
+        scoreTotal+=z;
+    }
+    document.getElementById("upperScore").innerHTML = scoreTotal.toString();
 }

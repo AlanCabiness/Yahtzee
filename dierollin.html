@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dice Roll Game</title>
+    <link rel="stylesheet" type="text/css" href="dierollin.css">
+    <script type="text/javascript">
+    
+
+        function oneRoll(dieNumber) {
+            var randNum, fileName, dieId;
+            randNum = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+            fileName = "die" + randNum + ".png";
+            document.getElementById(dieNumber).src = fileName;
+        }
+
+        function rollDice() {
+            var checks = ["chkDie1", "chkDie2", "chkDie3", "chkDie4", "chkDie5", "chkDie6"];
+            for (var i = 0; i < checks.length; i++) {
+                if (document.getElementById(checks[i]).checked == false) {
+                    var imgId = "die" + (checks[i].substring(6, 7));
+                    oneRoll(imgId);
+                }
+            }
+
+        }
+
+    </script>
+    <script src="jquery-3.1.1.js"></script>
+    <style type="text/css">
+        table {
+            width: 90%;
+        }
+
+    </style>
+
+</head>
+<body>
+<h1>Die Rollin'</h1>
+<div id="dice" class="table">
+    <table id="dieTable" style="width: auto;">
+        <tr>
+            <th><img src="die1.png" id="die1" height="150px" width="150px"></th>
+            <th><img src="die2.png" id="die2" height="150px" width="150px"></th>
+        </tr>
+         <tr>
+            <th><input type="checkbox" id="chkDie1"></th>
+            <th><input type="checkbox" id="chkDie2"></th>
+        </tr>
+        <tr>
+            <th><img src="die3.png" id="die3" height="150px" width="150px"></th>
+            <th><img src="die4.png" id="die4" height="150px" width="150px"></th>
+        </tr>
+        <tr>
+            <th><input type="checkbox" id="chkDie3"></th>
+            <th><input type="checkbox" id="chkDie4"></th>
+        </tr>
+        <tr>
+            <th><img src="die5.png" id="die5" height="150px" width="150px"></th>
+            <th><img src="die6.png" id="die6" height="150px" width="150px"></th>
+        </tr>
+        <tr>
+            <th><input type="checkbox" id="chkDie5"></th>
+            <th><input type="checkbox" id="chkDie6"></th>
+        </tr>
+    </table>
+</div>
+<div id="main_content" style="float: inherit">
+    <button id="rollButton" type="button" onclick="rollDice()">ROLL EM'</button>
+</div>
+     <p> 
+        <a href="dieLandingPage.html">Return to Navigation Page?</a>
+    </p>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dice Roll Game</title>
+    <link rel="stylesheet" type="text/css" href="hangman.css">
+    <script>
+        function storeSecret(){
+            var secret;
+            secret=document.getElementById ("sec").value;
+            playHangman(secret);
+        }
+        
+        function playHangman(secret){
+            var error, 
+        }
+        
+        function guessCheck(){
+            
+        }
+        /*
+        function () {
+            var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+        'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+        't', 'u', 'v', 'w', 'x', 'y', 'z'];
+        }
+  */
+
+        
+        
+    </script>
+</head>
+<body>
+<h1>Hangman</h1>
+    <input id="sec" type="text" size="15"/>
+    <button id="secret" type="button" onclick="storeSecret()">Enter Secret Word</button>
+    <div class="wrapper">
+    <div id="buttons">
+    </div>  
+    <div id="img">
+        <img src="hangman.png">
+    </div>
+    
+    <input id="guess" type="text" size="15"/>
+    <button id="guessButton" type="button" onclick="guessCheck()">GUESS</button>
+    
+     <p> 
+        <a href="dieLandingPage.html">Return to Navigation Page?</a>
+    </p>
+</body>
+</html>

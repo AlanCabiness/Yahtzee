@@ -44,7 +44,7 @@
     <br>
     <table class="scoreTable">
         <tr>
-            <th>Upper Section</th>
+            <th class="alan">Upper Section</th>
         </tr>
         <tr>
             <th>Ones</th>
@@ -119,11 +119,19 @@
             </th>
         </tr>
         </table>
+        <table class="total">
+        <tr >
+            <th>Upper Score</th>
+            <th class="number">-</th>
+            <th class="number">-</th>
+            <th class="number"><div class="number"  id="upperScore" style="background-color: #000000; color: #ff0000">0</div></th>
+        </tr>
+        </table>
         <br>
     
         <table class="lowerSection">
         <tr>
-            <th>Lower Section</th>
+            <th class="alan">Lower Section</th>
         </tr>
         <tr>
             <th>3 of a Kind</th>
@@ -212,20 +220,20 @@
         </table>
     <br>
         <table class="total">
-        <tr>
+        <tr >
             <th>Total Score</th>
-            <th>-</th>
-            <th>-</th>
-            <th><div class="number"  id="totalScore" style="background-color: #000000; color: #ff0000">0</div></th>
+            <th class="number">-</th>
+            <th class="number">-</th>
+            <th class="number"><div class="number"  id="totalScore" style="background-color: #000000; color: #ff0000">0</div></th>
         </tr>
     </table>
 </div>
-<div id="roll_buttons">
-    <button class="cssButton" id="btnRollOne" type="button" onclick="rollDice()">First Roll</button>
-    <button class="cssButton" id="btnRollTwo" type="button" onclick="rollDice()" style="visibility: hidden;">Second Roll</button>
-    <button class="cssButton" id="btnRollThree" type="button" onclick="rollDice()" style="visibility: hidden;">Third Roll</button>
+<div class= "rollButtons" id="roll_buttons">
+    <button class="rollButtons" id="btnRollOne" type="button" onclick="rollDice()">First Roll</button>
+    <button class="rollButtons" id="btnRollTwo" type="button" onclick="rollDice()" style="visibility: hidden;">Second Roll</button>
+    <button class="rollButtons" id="btnRollThree" type="button" onclick="rollDice()" style="visibility: hidden;">Third Roll</button>
     <br>
-    <button class="cssButton" id="btnNewHand" type="button" onclick="resetDice()" style="visibility: hidden;">Next Round</button>
+    <button class="rollButtons" id="btnNewHand" type="button" onclick="resetDice()" style="visibility: hidden;">Next Round</button>
 </div>
 
 </body>

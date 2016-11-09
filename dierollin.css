@@ -1,0 +1,59 @@
+/*import a vegas font
+  store your dice in the bottem on the page
+  extend background image
+  move button down*/
+body {
+    background-image: url("greenfelt.jpeg");
+    height: 100%;
+    width: 100%;
+    color: white;
+}
+
+
+
+#dice table{
+    margin: 0 auto;
+    
+}
+
+#main_content {
+    text-align: center;
+}
+
+#rollButton {
+    background-color:#56BE75; /* Green */
+    padding: 15px 25px;
+    cursor: pointer;
+    outline: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    border-radius: 12px;
+    border:1px solid white;
+    
+    
+}
+
+#rollButton{
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    
+}
+#rollButton:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#rollButton:active {
+  background-color: #56BE75;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+
+
+
+#C5EC8D
+#56BE75
