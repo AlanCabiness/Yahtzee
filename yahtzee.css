@@ -1,0 +1,42 @@
+body{
+    background-image: url(images/felt.jpg);
+    background-size: 1920px 1080px;
+    font-family: sans-serif;
+    color: whitesmoke;
+    font-size: 26px;
+}
+
+table, td, th{
+    border-collapse: collapse;
+    width: 10%;
+    text-align: left
+}
+
+.cssButton {
+    width:100%;
+    background-color: white; /* Green */
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+}
+
+.cssButton:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+.lowerSection {
+    color: white;
+}
+
+.number {
+    text-align: center;
+}

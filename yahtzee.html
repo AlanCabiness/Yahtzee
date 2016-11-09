@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dice Suite - Yahtzee</title>
+    <link rel="stylesheet" type="text/css" href="yahtzee.css">
+    <script type="text/javascript" src="yahtzeeScripts.js">
+    </script>
+    <script src="jquery-3.1.1.js"></script>
+    <style type="text/css">
+
+        .scored {
+            color: #ff0000;
+        }
+
+        table {
+            width: 90%;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div id="dice" class="table">
+    <table id="dieTable" style="width: auto;">
+        <tr>
+            <th><img src="images/die0.png" id="die1" height="150px" width="150px"></th>
+            <th><img src="images/die0.png" id="die2" height="150px" width="150px"></th>
+            <th><img src="images/die0.png" id="die3" height="150px" width="150px"></th>
+            <th><img src="images/die0.png" id="die4" height="150px" width="150px"></th>
+            <th><img src="images/die0.png" id="die5" height="150px" width="150px"></th>
+            <th><img src="images/die0.png" id="die6" height="150px" width="150px"></th>
+        </tr>
+        <tr>
+            <th><input type="checkbox" id="chkDie1"></th>
+            <th><input type="checkbox" id="chkDie2"></th>
+            <th><input type="checkbox" id="chkDie3"></th>
+            <th><input type="checkbox" id="chkDie4"></th>
+            <th><input type="checkbox" id="chkDie5"></th>
+            <th><input type="checkbox" id="chkDie6"></th>
+        </tr>
+    </table>
+    <br>
+    <table class="scoreTable">
+        <tr>
+            <th>Upper Section</th>
+        </tr>
+        <tr>
+            <th>Ones</th>
+            <th>
+                <button  class="cssButton" id="btnOnes" onclick="scoreOnes()">Ones</button>
+            </th>
+            <th>
+                <div class="number" id="ones">0</div>
+            </th>
+            <th>
+                <div class="number" id="onesX" class="scored">0</div>
+            </th>
+        </tr>
+        <tr>
+            <th>Twos</th>
+            <th>
+                <button  class="cssButton" id="btnTwos" onclick="scoreTwos()">Twos</button>
+            </th>
+            <th>
+                <div class="number" id="twos">0</div>
+            </th>
+            <th>
+                <div class="number" id="twosX" class="scored">0</div>
+            </th>
+        </tr>
+        <tr>
+            <th>Threes</th>
+            <th>
+                <button  class="cssButton" id="btnThrees" onclick="scoreThrees()">Threes</button>
+            </th>
+            <th>
+                <div class="number" id="threes">0</div>
+            </th>
+            <th>
+                <div class="number" id="threesX" class="scored">0</div>
+            </th>
+        </tr>
+        <tr>
+            <th>Fours</th>
+            <th>
+                <button   class="cssButton" id="btnFours" onclick="scoreFours()">Fours</button>
+            </th>
+            <th>
+                <div class="number" id="fours">0</div>
+            </th>
+            <th>
+                <div class="number" id="foursX" class="scored">0</div>
+            </th>
+        </tr>
+        <tr>
+            <th>Fives</th>
+            <th>
+                <button  class="cssButton" id="btnFives" onclick="scoreFives()">Fives</button>
+            </th>
+            <th>
+                <div class="number" id="fives">0</div>
+            </th>
+            <th>
+                <div class="number" id="fivesX" class="scored">0</div>
+            </th>
+        </tr>
+        <tr>
+            <th>Sixes</th>
+            <th>
+                <button class="cssButton" id="btnSixes" onclick="scoreSixes()">Sixes</button>
+            </th>
+            <th>
+                <div class="number" id="sixes">0</div>
+            </th>
+            <th>
+                <div class="number" id="sixesX" class="scored">0</div>
+            </th>
+        </tr>
+        </table>
+        <br>
+    
+        <table class="lowerSection">
+        <tr>
+            <th>Lower Section</th>
+        </tr>
+        <tr>
+            <th>3 of a Kind</th>
+            <th>
+                <button class="cssButton" id="btn3OK" onclick="scoreThreeOK()">3 of a Kind</button>
+            </th>
+            <th>
+                <div class="number" id="threeOfKind">0</div>
+            </th>
+            <th>
+                <div class="number" id="threeOfKindX" class="scored">0</div>
+            </th>
+        </tr>
+        <tr>
+            <th>4 of a Kind</th>
+            <th>
+                <button class="cssButton" id="btn4OK" onclick="scoreFourOK()">4 of a Kind</button>
+            </th>
+            <th>
+                <div class="number" id="fourOfKind">0</div>
+            </th>
+            <th>
+                <div class="number" id="fourOfKindX" class="scored">0</div>
+            </th>
+        </tr>
+        <tr>
+            <th>Full House</th>
+            <th>
+                <button class="cssButton" id="btnFullHouse" onclick="scoreFullHouse()">Full House</button>
+            </th>
+            <th>
+                <div class="number" id="fullHouse">0</div>
+            </th>
+            <th>
+                <div class="number" id="fullHouseX" class="scored">0</div>
+            </th>
+        </tr>
+        <tr>
+            <th>Small Straight</th>
+            <th>
+                <button class="cssButton" id="btnSmStr" onclick="scoreSmStraight()">Small Straight</button>
+            </th>
+            <th>
+                <div class="number" id="smStraight">0</div>
+            </th>
+            <th>
+                <div class="number" id="smStraightX" class="scored">0</div>
+            </th>
+        </tr>
+        <tr>
+            <th>Large Straight</th>
+            <th>
+                <button class="cssButton" id="btnLgStr" onclick="scoreLgStraight()">Large Straight</button>
+            </th>
+            <th>
+                <div class="number" id="lgStraight">0</div>
+            </th>
+            <th>
+                <div class="number" id="lgStraightX" class="scored">0</div>
+            </th>
+        </tr>
+        <tr>
+            <th>Yahtzee</th>
+            <th>
+                <button class="cssButton" id="btnYahtzee" onclick="scoreYahtzee()">Yahtzee</button>
+            </th>
+            <th>
+                <div class="number" id="yahtzee">0</div>
+            </th>
+            <th>
+                <div class="number" id="yahtzeeX" class="scored">0</div>
+            </th>
+        </tr>
+        <tr>
+            <th>Chance</th>
+            <th>
+                <button class="cssButton" id="btnChance" onclick="scoreChance()">Chance</button>
+            </th>
+            <th>
+                <div class="number" id="chance">0</div>
+            </th>
+            <th>
+                <div class="number"  id="chanceX" class="scored">0</div>
+            </th>
+        </tr>
+        </table>
+    <br>
+        <table class="total">
+        <tr>
+            <th>Total Score</th>
+            <th>-</th>
+            <th>-</th>
+            <th><div class="number"  id="totalScore" style="background-color: #000000; color: #ff0000">0</div></th>
+        </tr>
+    </table>
+</div>
+<div id="roll_buttons">
+    <button class="cssButton" id="btnRollOne" type="button" onclick="rollDice()">First Roll</button>
+    <button class="cssButton" id="btnRollTwo" type="button" onclick="rollDice()" style="visibility: hidden;">Second Roll</button>
+    <button class="cssButton" id="btnRollThree" type="button" onclick="rollDice()" style="visibility: hidden;">Third Roll</button>
+    <br>
+    <button class="cssButton" id="btnNewHand" type="button" onclick="resetDice()" style="visibility: hidden;">Next Round</button>
+</div>
+
+</body>
+</html>
