@@ -4,6 +4,8 @@
 
 var rolls = {"1": 0, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0};
 var rollnumber = 0;
+var scoreButtons = ["btnOnes", "btnTwos", "btnThrees", "btnFours", "btnFives", "btnSixes", "btn3OK", "btn4OK",
+    "btnFullHouse", "btnSmStr", "btnLgStr", "btnYahtzee", "btnChance"];
 function oneRoll(dieNumber) {
     var randNum, fileName;
     randNum = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
@@ -16,6 +18,7 @@ function rollDice() {
     rolls = {"1": 0, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0};
     var checks = ["chkDie1", "chkDie2", "chkDie3", "chkDie4", "chkDie5", "chkDie6"];
     rollnumber += 1;
+
     if (rollnumber == 1) {
         document.getElementById("btnRollOne").style.visibility = "hidden";
         document.getElementById("btnRollTwo").style.visibility = "visible";
@@ -71,7 +74,8 @@ function rollDice() {
 function resetDice() {
     var checks = ["chkDie1", "chkDie2", "chkDie3", "chkDie4", "chkDie5", "chkDie6"];
     var dies = ["die1", "die2", "die3", "die4", "die5", "die6"];
-    var scoredivs = ["ones", "twos", "threes", "fours", "fives", "sixes", "threeOfKind", "fourOfKind", "fullHouse", "smStraight", "lgStraight", "yahtzee", "chance"];
+    var scoredivs = ["ones", "twos", "threes", "fours", "fives", "sixes", "threeOfKind", "fourOfKind", "fullHouse",
+        "smStraight", "lgStraight", "yahtzee", "chance"];
     document.getElementById("btnNewHand").style.visibility = "hidden";
     for (var x = 0; x < 6; x++) {
         document.getElementById(dies[x]).setAttribute('src', "images/die0.png");
@@ -80,12 +84,21 @@ function resetDice() {
     for (var z = 0; z < scoredivs.length; z++) {
         document.getElementById(scoredivs[z]).innerHTML = "0"
     }
-    document.getElementById("btnRollTwo").style.visibility="hidden";
-    document.getElementById("btnRollThree").style.visibility="hidden";
+    document.getElementById("btnRollTwo").style.visibility = "hidden";
+    document.getElementById("btnRollThree").style.visibility = "hidden";
     document.getElementById("btnRollOne").style.visibility = "visible";
     totalScore();
-    rollnumber=0;
-
+    rollnumber = 0;
+    var btnInvisible=0;
+    for (var c=0; c<scoreButtons.length;c++){
+        if (document.getElementById(scoreButtons[c]).style.visibility=="hidden"){
+            btnInvisible+=1
+        }
+    }
+    if (btnInvisible==scoreButtons.length) {
+        alert("Game Over! Your score was: " + document.getElementById("totalScore").innerHTML);
+        alert("Thanks for playing, please come again");
+    }
 }
 
 function fillRolls() {
@@ -428,12 +441,13 @@ function scoreChance() {
 
 }
 
-function totalScore(){
-    var scoredivs = ["onesX", "twosX", "threesX", "foursX", "fivesX", "sixesX", "threeOfKindX", "fourOfKindX", "fullHouseX", "smStraightX", "lgStraightX", "yahtzeeX", "chanceX"];
-    var scoreTotal=0;
-    for (var i=0;i<scoredivs.length;i++){
+function totalScore() {
+    var scoredivs = ["onesX", "twosX", "threesX", "foursX", "fivesX", "sixesX", "threeOfKindX", "fourOfKindX",
+        "fullHouseX", "smStraightX", "lgStraightX", "yahtzeeX", "chanceX"];
+    var scoreTotal = 0;
+    for (var i = 0; i < scoredivs.length; i++) {
         var z = parseInt(document.getElementById(scoredivs[i]).innerHTML)
-        scoreTotal+=z;
+        scoreTotal += z;
     }
-    document.getElementById("totalScore").innerHTML=scoreTotal.toString();
+    document.getElementById("totalScore").innerHTML = scoreTotal.toString();
 }
